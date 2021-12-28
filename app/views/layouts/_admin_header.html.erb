@@ -1,0 +1,36 @@
+<!--管理者側のナビゲーション-->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" >Tearoom</a>
+    <!--jQuery idを指定-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--idを付与-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <!--ログイン後-->
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "商品一覧" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "会員一覧" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "注文履歴一覧" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ジャンル一覧" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link active" %>
+          </li>
+        <% else %>
+          <!--顧客側のヘッダーを表示-->
+          <%= render 'layouts/public_header' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
