@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!--ヘッダー-->
     <header>
       <% if admin_signed_in? %>
         <%= render 'layouts/admin_header' %>
@@ -18,5 +19,14 @@
       <% end %>
     </header>
     <%= yield %>
+    <!--フッター-->
+    <footer class="p-4 bg-light">
+      <div class="container">
+    	  <div class="row">
+    	    <!--要素の中央寄せ-->
+      	<div class="mx-auto">
+      	<p>tearoom.com</p>
+      </div>
+    </footer>
   </body>
 </html>
