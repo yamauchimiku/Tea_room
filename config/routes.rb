@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
-  # 顧客用
-  # URL /customers/sign_in
+  # 顧客用devise
   # skipで余分なルーティングを削除
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
-  # 管理者用
-  # URL /admin/sign_in
+  # 管理者用devise
   # skipで余分なルーティングを削除
    devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
 
-  # 会員側
+  # 顧客側
   scope module: :public do
     root to: "homes#top"
     get "about" => "homes#about"
@@ -33,6 +31,7 @@ Rails.application.routes.draw do
     patch "customers/withdraw" => "customers#withdraw"
   end
 
+  # 管理者側
   namespace :admin do
     root to: "homes#top"
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
