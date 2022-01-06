@@ -18,14 +18,18 @@
         <%= render 'layouts/public_header' %>
       <% end %>
     </header>
+    <main>
     <%= yield %>
+    </main>
     <!--フッター-->
-    <footer class="p-4 bg-light">
+    <footer class="p-5 bg-light">
       <div class="container">
     	  <div class="row">
-    	    <!--要素の中央寄せ-->
-      	<div class="mx-auto">
-      	<p>tearoom.com</p>
+      	  <!--要素の中央寄せ-->
+        	<div class="mx-auto">
+        	<p>tearoom.com</p>
+          </div>
+        </div>
       </div>
     </footer>
   </body>
